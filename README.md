@@ -1,11 +1,7 @@
 A demo of how to setup nginx as a reverse proxy (single http entry point) to a second nginx server and an apache server.
 
 
-To build the custom `reverseproxy` image run:
-
-  `docker build -t reverseproxy .`
-
-Then start all three containers using:
+To start all three containers run:
 
   `docker-compose up`
 
@@ -13,13 +9,13 @@ You should be able to open:
 
   http://localhost:8080
 
-and see nginx's "Welcome to nginx!" message.
+and see nginx's _"Welcome to nginx!"_ message.
 
 And you should be able to open:
 
   http://localhost:8080/apache
 
-and see apache's "It works!" message.
+and see apache's _"It works!"_ message.
 
 
 This can serve as a basic example of how to setup a wordpress site on "/blog" of an existing nginx site (the leading `/` only on `http://docker-apache/` line of `nginx.conf` file is important for this to work).
