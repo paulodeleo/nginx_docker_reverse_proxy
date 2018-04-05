@@ -1,15 +1,19 @@
 version: '2'
 services:
   reverseproxy:
-    build: .
+    build: .              # Builds image using the local Dockerfile
+    image: myreverseproxy # Builds image using a custom name
+    container_name: nginx-proxy
     ports: ['8080:8080']
     restart: always
   apache:
     depends_on: [reverseproxy]
     image: httpd:alpine
+    container_name: apache-site
     restart: always
   nginx:
     depends_on: [reverseproxy]
     image: nginx:alpine
+    container_name: nginx-site
     restart: always
 
